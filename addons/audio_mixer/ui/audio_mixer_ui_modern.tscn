@@ -131,7 +131,6 @@ select_mode = 1
 [node name="CenterRightSplit" type="HSplitContainer" parent="MarginContainer/MainSplit"]
 layout_mode = 2
 size_flags_horizontal = 3
-split_offset = -380
 dragger_visibility = 1
 
 [node name="CenterPanel" type="PanelContainer" parent="MarginContainer/MainSplit/CenterRightSplit"]

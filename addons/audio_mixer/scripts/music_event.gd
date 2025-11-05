@@ -288,7 +288,8 @@ func update_position(delta: float) -> void:
 func _check_markers() -> void:
 	for marker in markers:
 		var marker_time = marker.time_position if marker.time_position > 0.0 else marker.beat_position * _beat_duration
-		if _playback_position >= marker_time and _playback_position - get_process_delta_time() < marker_time:
+		# Check if marker was just passed (simple check without delta)
+		if _playback_position >= marker_time and _playback_position < marker_time + 0.1:
 			marker_reached.emit(marker.marker_name)
 
 ## Get next quantization boundary time
