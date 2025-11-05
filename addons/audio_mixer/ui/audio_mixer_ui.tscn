@@ -1,0 +1,223 @@
+[gd_scene load_steps=2 format=3 uid="uid://ctq3r86rvj7xr"]
+
+[ext_resource type="Script" path="res://addons/audio_mixer/ui/audio_mixer_ui.gd" id="1_audio_ui"]
+
+[node name="AudioMixerUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_audio_ui")
+
+[node name="HSplitContainer" type="HSplitContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+split_offset = 300
+
+[node name="LeftPanel" type="VBoxContainer" parent="HSplitContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/LeftPanel"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HSplitContainer/LeftPanel/VBoxContainer"]
+layout_mode = 2
+text = "Audio Events"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HSplitContainer/LeftPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="SearchBar" type="LineEdit" parent="HSplitContainer/LeftPanel/VBoxContainer"]
+layout_mode = 2
+placeholder_text = "Search events..."
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="HSplitContainer/LeftPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="CreateEventMenu" type="MenuButton" parent="HSplitContainer/LeftPanel/VBoxContainer"]
+layout_mode = 2
+text = "Create New Event"
+
+[node name="RefreshButton" type="Button" parent="HSplitContainer/LeftPanel/VBoxContainer"]
+layout_mode = 2
+text = "Refresh List"
+
+[node name="EventTree" type="Tree" parent="HSplitContainer/LeftPanel"]
+layout_mode = 2
+size_flags_vertical = 3
+columns = 2
+hide_root = true
+
+[node name="RightPanel" type="VBoxContainer" parent="HSplitContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HeaderPanel" type="PanelContainer" parent="HSplitContainer/RightPanel"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HSplitContainer/RightPanel/HeaderPanel"]
+layout_mode = 2
+
+[node name="EventNameLabel" type="Label" parent="HSplitContainer/RightPanel/HeaderPanel"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "No Event Selected"
+vertical_alignment = 1
+
+[node name="TestButton" type="Button" parent="HSplitContainer/RightPanel/HeaderPanel"]
+layout_mode = 2
+text = "Test Playback"
+
+[node name="StopButton" type="Button" parent="HSplitContainer/RightPanel/HeaderPanel"]
+layout_mode = 2
+text = "Stop"
+
+[node name="Label" type="Label" parent="HSplitContainer/RightPanel"]
+layout_mode = 2
+text = "Event Inspector"
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HSplitContainer/RightPanel"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="InspectorContainer" type="VBoxContainer" parent="HSplitContainer/RightPanel/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BottomPanel" type="PanelContainer" parent="HSplitContainer/RightPanel"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+
+[node name="TabContainer" type="TabContainer" parent="HSplitContainer/RightPanel/BottomPanel"]
+layout_mode = 2
+
+[node name="Parameters" type="VBoxContainer" parent="HSplitContainer/RightPanel/BottomPanel/TabContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HSplitContainer/RightPanel/BottomPanel/TabContainer/Parameters"]
+layout_mode = 2
+text = "Global Parameters"
+horizontal_alignment = 1
+
+[node name="ParamList" type="ItemList" parent="HSplitContainer/RightPanel/BottomPanel/TabContainer/Parameters"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Controls" type="HBoxContainer" parent="HSplitContainer/RightPanel/BottomPanel/TabContainer/Parameters"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HSplitContainer/RightPanel/BottomPanel/TabContainer/Parameters/Controls"]
+layout_mode = 2
+text = "Name:"
+
+[node name="ParamName" type="LineEdit" parent="HSplitContainer/RightPanel/BottomPanel/TabContainer/Parameters/Controls"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "parameter_name"
+
+[node name="Label2" type="Label" parent="HSplitContainer/RightPanel/BottomPanel/TabContainer/Parameters/Controls"]
+layout_mode = 2
+text = "Value:"
+
+[node name="ParamValue" type="SpinBox" parent="HSplitContainer/RightPanel/BottomPanel/TabContainer/Parameters/Controls"]
+layout_mode = 2
+max_value = 100.0
+step = 0.01
+
+[node name="Label3" type="Label" parent="HSplitContainer/RightPanel/BottomPanel/TabContainer/Parameters/Controls"]
+layout_mode = 2
+text = "Min:"
+
+[node name="ParamMin" type="SpinBox" parent="HSplitContainer/RightPanel/BottomPanel/TabContainer/Parameters/Controls"]
+layout_mode = 2
+max_value = 100.0
+step = 0.01
+
+[node name="Label4" type="Label" parent="HSplitContainer/RightPanel/BottomPanel/TabContainer/Parameters/Controls"]
+layout_mode = 2
+text = "Max:"
+
+[node name="ParamMax" type="SpinBox" parent="HSplitContainer/RightPanel/BottomPanel/TabContainer/Parameters/Controls"]
+layout_mode = 2
+max_value = 100.0
+step = 0.01
+value = 1.0
+
+[node name="BPMSync" type="VBoxContainer" parent="HSplitContainer/RightPanel/BottomPanel/TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HSplitContainer/RightPanel/BottomPanel/TabContainer/BPMSync"]
+layout_mode = 2
+text = "BPM Synchronization"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HSplitContainer/RightPanel/BottomPanel/TabContainer/BPMSync"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HSplitContainer/RightPanel/BottomPanel/TabContainer/BPMSync/HBoxContainer"]
+layout_mode = 2
+text = "BPM:"
+
+[node name="BPMSpinBox" type="SpinBox" parent="HSplitContainer/RightPanel/BottomPanel/TabContainer/BPMSync"]
+layout_mode = 2
+min_value = 30.0
+max_value = 300.0
+value = 120.0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="HSplitContainer/RightPanel/BottomPanel/TabContainer/BPMSync"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="HSplitContainer/RightPanel/BottomPanel/TabContainer/BPMSync/HBoxContainer2"]
+layout_mode = 2
+text = "Time Signature:"
+
+[node name="TimeSigSpinBox" type="SpinBox" parent="HSplitContainer/RightPanel/BottomPanel/TabContainer/BPMSync"]
+layout_mode = 2
+min_value = 1.0
+max_value = 16.0
+value = 4.0
+
+[node name="BeatLabel" type="Label" parent="HSplitContainer/RightPanel/BottomPanel/TabContainer/BPMSync"]
+layout_mode = 2
+text = "Beat: 1/4 | Bar: 0"
+horizontal_alignment = 1
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="HSplitContainer/RightPanel/BottomPanel/TabContainer/BPMSync"]
+layout_mode = 2
+alignment = 1
+
+[node name="StartButton" type="Button" parent="HSplitContainer/RightPanel/BottomPanel/TabContainer/BPMSync"]
+layout_mode = 2
+text = "Start BPM Clock"
+
+[node name="StopButton" type="Button" parent="HSplitContainer/RightPanel/BottomPanel/TabContainer/BPMSync"]
+layout_mode = 2
+text = "Stop BPM Clock"
+
+[node name="Stats" type="VBoxContainer" parent="HSplitContainer/RightPanel/BottomPanel/TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HSplitContainer/RightPanel/BottomPanel/TabContainer/Stats"]
+layout_mode = 2
+text = "System Statistics"
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HSplitContainer/RightPanel/BottomPanel/TabContainer/Stats"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PoolStatsLabel" type="Label" parent="HSplitContainer/RightPanel/BottomPanel/TabContainer/Stats"]
+layout_mode = 2
+text = "Pool Statistics will appear here..."
