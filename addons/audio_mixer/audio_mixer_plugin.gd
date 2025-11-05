@@ -7,8 +7,8 @@ var audio_mixer_ui: Control = null
 var inspector_plugin: EditorInspectorPlugin = null
 
 func _enter_tree() -> void:
-	# Load the enhanced UI scene (V2)
-	var ui_scene = preload("res://addons/audio_mixer/ui/audio_mixer_ui_v2.tscn")
+	# Load the modern UI scene
+	var ui_scene = preload("res://addons/audio_mixer/ui/audio_mixer_ui_modern.tscn")
 	audio_mixer_ui = ui_scene.instantiate()
 	audio_mixer_ui.editor_plugin = self
 

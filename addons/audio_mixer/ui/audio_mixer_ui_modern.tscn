@@ -1,0 +1,472 @@
+[gd_scene load_steps=2 format=3 uid="uid://modern_audio_mixer_ui"]
+
+[ext_resource type="Script" path="res://addons/audio_mixer/ui/audio_mixer_ui_modern.gd" id="1_modern"]
+
+[node name="AudioMixerUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_modern")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.15, 0.15, 0.17, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="MainSplit" type="HSplitContainer" parent="MarginContainer"]
+layout_mode = 2
+split_offset = 320
+dragger_visibility = 1
+
+[node name="LeftPanel" type="PanelContainer" parent="MarginContainer/MainSplit"]
+custom_minimum_size = Vector2(280, 0)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/MainSplit/LeftPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MainSplit/LeftPanel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Header" type="VBoxContainer" parent="MarginContainer/MainSplit/LeftPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Title" type="Label" parent="MarginContainer/MainSplit/LeftPanel/MarginContainer/VBoxContainer/Header"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.9, 0.95, 1)
+theme_override_font_sizes/font_size = 18
+text = "🎵 Audio Events"
+horizontal_alignment = 1
+
+[node name="Toolbar" type="HBoxContainer" parent="MarginContainer/MainSplit/LeftPanel/MarginContainer/VBoxContainer/Header"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="NewEventButton" type="MenuButton" parent="MarginContainer/MainSplit/LeftPanel/MarginContainer/VBoxContainer/Header/Toolbar"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.5, 0.8, 1, 1)
+theme_override_font_sizes/font_size = 13
+text = "➕ New Event"
+
+[node name="RefreshButton" type="Button" parent="MarginContainer/MainSplit/LeftPanel/MarginContainer/VBoxContainer/Header/Toolbar"]
+custom_minimum_size = Vector2(40, 32)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "🔄"
+tooltip_text = "Refresh event list"
+
+[node name="DeleteButton" type="Button" parent="MarginContainer/MainSplit/LeftPanel/MarginContainer/VBoxContainer/Header/Toolbar"]
+custom_minimum_size = Vector2(40, 32)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "🗑"
+tooltip_text = "Delete selected event"
+
+[node name="SearchContainer" type="PanelContainer" parent="MarginContainer/MainSplit/LeftPanel/MarginContainer/VBoxContainer/Header"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/MainSplit/LeftPanel/MarginContainer/VBoxContainer/Header/SearchContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 6
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/MainSplit/LeftPanel/MarginContainer/VBoxContainer/Header/SearchContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="SearchIcon" type="Label" parent="MarginContainer/MainSplit/LeftPanel/MarginContainer/VBoxContainer/Header/SearchContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "🔍"
+
+[node name="SearchBar" type="LineEdit" parent="MarginContainer/MainSplit/LeftPanel/MarginContainer/VBoxContainer/Header/SearchContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 13
+placeholder_text = "Search events..."
+clear_button_enabled = true
+caret_blink = true
+
+[node name="Separator" type="HSeparator" parent="MarginContainer/MainSplit/LeftPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="EventTree" type="Tree" parent="MarginContainer/MainSplit/LeftPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+columns = 2
+column_titles_visible = true
+hide_root = true
+select_mode = 1
+
+[node name="CenterRightSplit" type="HSplitContainer" parent="MarginContainer/MainSplit"]
+layout_mode = 2
+size_flags_horizontal = 3
+split_offset = -380
+dragger_visibility = 1
+
+[node name="CenterPanel" type="PanelContainer" parent="MarginContainer/MainSplit/CenterRightSplit"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/MainSplit/CenterRightSplit/CenterPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MainSplit/CenterRightSplit/CenterPanel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="EventHeader" type="PanelContainer" parent="MarginContainer/MainSplit/CenterRightSplit/CenterPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/MainSplit/CenterRightSplit/CenterPanel/MarginContainer/VBoxContainer/EventHeader"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/MainSplit/CenterRightSplit/CenterPanel/MarginContainer/VBoxContainer/EventHeader/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="EventIcon" type="Label" parent="MarginContainer/MainSplit/CenterRightSplit/CenterPanel/MarginContainer/VBoxContainer/EventHeader/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "🎵"
+vertical_alignment = 1
+
+[node name="EventNameLabel" type="Label" parent="MarginContainer/MainSplit/CenterRightSplit/CenterPanel/MarginContainer/VBoxContainer/EventHeader/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.9, 0.9, 0.95, 1)
+theme_override_font_sizes/font_size = 20
+text = "No Event Selected"
+vertical_alignment = 1
+
+[node name="SaveButton" type="Button" parent="MarginContainer/MainSplit/CenterRightSplit/CenterPanel/MarginContainer/VBoxContainer/EventHeader/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 36)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.5, 1, 0.5, 1)
+theme_override_font_sizes/font_size = 14
+text = "💾 Save"
+tooltip_text = "Save event (Ctrl+S)"
+
+[node name="EditorTabContainer" type="TabContainer" parent="MarginContainer/MainSplit/CenterRightSplit/CenterPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 13
+
+[node name="Properties" type="ScrollContainer" parent="MarginContainer/MainSplit/CenterRightSplit/CenterPanel/MarginContainer/VBoxContainer/EditorTabContainer"]
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/MainSplit/CenterRightSplit/CenterPanel/MarginContainer/VBoxContainer/EditorTabContainer/Properties"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="PropertiesContainer" type="VBoxContainer" parent="MarginContainer/MainSplit/CenterRightSplit/CenterPanel/MarginContainer/VBoxContainer/EditorTabContainer/Properties/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="Layers" type="ScrollContainer" parent="MarginContainer/MainSplit/CenterRightSplit/CenterPanel/MarginContainer/VBoxContainer/EditorTabContainer"]
+visible = false
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/MainSplit/CenterRightSplit/CenterPanel/MarginContainer/VBoxContainer/EditorTabContainer/Layers"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="LayersContainer" type="VBoxContainer" parent="MarginContainer/MainSplit/CenterRightSplit/CenterPanel/MarginContainer/VBoxContainer/EditorTabContainer/Layers/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 12
+
+[node name="Stems" type="ScrollContainer" parent="MarginContainer/MainSplit/CenterRightSplit/CenterPanel/MarginContainer/VBoxContainer/EditorTabContainer"]
+visible = false
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/MainSplit/CenterRightSplit/CenterPanel/MarginContainer/VBoxContainer/EditorTabContainer/Stems"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="StemsContainer" type="VBoxContainer" parent="MarginContainer/MainSplit/CenterRightSplit/CenterPanel/MarginContainer/VBoxContainer/EditorTabContainer/Stems/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 12
+
+[node name="Snapshots" type="ScrollContainer" parent="MarginContainer/MainSplit/CenterRightSplit/CenterPanel/MarginContainer/VBoxContainer/EditorTabContainer"]
+visible = false
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/MainSplit/CenterRightSplit/CenterPanel/MarginContainer/VBoxContainer/EditorTabContainer/Snapshots"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="SnapshotsContainer" type="VBoxContainer" parent="MarginContainer/MainSplit/CenterRightSplit/CenterPanel/MarginContainer/VBoxContainer/EditorTabContainer/Snapshots/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 12
+
+[node name="RightPanel" type="VBoxContainer" parent="MarginContainer/MainSplit/CenterRightSplit"]
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="PlaybackPanel" type="PanelContainer" parent="MarginContainer/MainSplit/CenterRightSplit/RightPanel"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/MainSplit/CenterRightSplit/RightPanel/PlaybackPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MainSplit/CenterRightSplit/RightPanel/PlaybackPanel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Title" type="Label" parent="MarginContainer/MainSplit/CenterRightSplit/RightPanel/PlaybackPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.9, 0.95, 1)
+theme_override_font_sizes/font_size = 16
+text = "▶ Playback Controls"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/MainSplit/CenterRightSplit/RightPanel/PlaybackPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ButtonContainer" type="HBoxContainer" parent="MarginContainer/MainSplit/CenterRightSplit/RightPanel/PlaybackPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="TestButton" type="Button" parent="MarginContainer/MainSplit/CenterRightSplit/RightPanel/PlaybackPanel/MarginContainer/VBoxContainer/ButtonContainer"]
+custom_minimum_size = Vector2(130, 48)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.5, 1, 0.5, 1)
+theme_override_font_sizes/font_size = 16
+text = "▶ Play"
+tooltip_text = "Test playback (Space)"
+
+[node name="StopButton" type="Button" parent="MarginContainer/MainSplit/CenterRightSplit/RightPanel/PlaybackPanel/MarginContainer/VBoxContainer/ButtonContainer"]
+custom_minimum_size = Vector2(90, 48)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 0.5, 0.5, 1)
+theme_override_font_sizes/font_size = 16
+text = "■ Stop"
+tooltip_text = "Stop playback"
+
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer/MainSplit/CenterRightSplit/RightPanel/PlaybackPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="StatusLabel" type="Label" parent="MarginContainer/MainSplit/CenterRightSplit/RightPanel/PlaybackPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+text = "Ready"
+horizontal_alignment = 1
+
+[node name="ParametersPanel" type="PanelContainer" parent="MarginContainer/MainSplit/CenterRightSplit/RightPanel"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/MainSplit/CenterRightSplit/RightPanel/ParametersPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MainSplit/CenterRightSplit/RightPanel/ParametersPanel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Title" type="Label" parent="MarginContainer/MainSplit/CenterRightSplit/RightPanel/ParametersPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.9, 0.95, 1)
+theme_override_font_sizes/font_size = 16
+text = "🎚 Parameter Control"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/MainSplit/CenterRightSplit/RightPanel/ParametersPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ParametersScroll" type="ScrollContainer" parent="MarginContainer/MainSplit/CenterRightSplit/RightPanel/ParametersPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="ParametersContainer" type="VBoxContainer" parent="MarginContainer/MainSplit/CenterRightSplit/RightPanel/ParametersPanel/MarginContainer/VBoxContainer/ParametersScroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 10
+
+[node name="NoParamsLabel" type="Label" parent="MarginContainer/MainSplit/CenterRightSplit/RightPanel/ParametersPanel/MarginContainer/VBoxContainer/ParametersScroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 12
+text = "No parameters for this event"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer/MainSplit/CenterRightSplit/RightPanel/ParametersPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="CreateParamButton" type="Button" parent="MarginContainer/MainSplit/CenterRightSplit/RightPanel/ParametersPanel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+text = "➕ Create Parameter"
+tooltip_text = "Create new global parameter"
+
+[node name="StatsPanel" type="PanelContainer" parent="MarginContainer/MainSplit/CenterRightSplit/RightPanel"]
+custom_minimum_size = Vector2(0, 220)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/MainSplit/CenterRightSplit/RightPanel/StatsPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MainSplit/CenterRightSplit/RightPanel/StatsPanel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Title" type="Label" parent="MarginContainer/MainSplit/CenterRightSplit/RightPanel/StatsPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.9, 0.95, 1)
+theme_override_font_sizes/font_size = 16
+text = "📊 System Stats"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/MainSplit/CenterRightSplit/RightPanel/StatsPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="StatsScroll" type="ScrollContainer" parent="MarginContainer/MainSplit/CenterRightSplit/RightPanel/StatsPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="StatsLabel" type="Label" parent="MarginContainer/MainSplit/CenterRightSplit/RightPanel/StatsPanel/MarginContainer/VBoxContainer/StatsScroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 11
+text = "Loading statistics..."
+
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer/MainSplit/CenterRightSplit/RightPanel/StatsPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="BPMContainer" type="HBoxContainer" parent="MarginContainer/MainSplit/CenterRightSplit/RightPanel/StatsPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="MarginContainer/MainSplit/CenterRightSplit/RightPanel/StatsPanel/MarginContainer/VBoxContainer/BPMContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "BPM:"
+
+[node name="BPMSpinBox" type="SpinBox" parent="MarginContainer/MainSplit/CenterRightSplit/RightPanel/StatsPanel/MarginContainer/VBoxContainer/BPMContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 30.0
+max_value = 300.0
+value = 120.0
+
+[node name="BeatLabel" type="Label" parent="MarginContainer/MainSplit/CenterRightSplit/RightPanel/StatsPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+text = "Beat: 1/4 | Bar: 0"
+horizontal_alignment = 1
+
+[node name="NewEventDialog" type="ConfirmationDialog" parent="."]
+title = "Create New Audio Event"
+initial_position = 2
+size = Vector2i(450, 200)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="NewEventDialog"]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 442.0
+offset_bottom = 151.0
+theme_override_constants/separation = 12
+
+[node name="NameContainer" type="VBoxContainer" parent="NewEventDialog/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Label" type="Label" parent="NewEventDialog/VBoxContainer/NameContainer"]
+layout_mode = 2
+text = "Event Name:"
+
+[node name="EventNameEdit" type="LineEdit" parent="NewEventDialog/VBoxContainer/NameContainer"]
+layout_mode = 2
+placeholder_text = "my_audio_event"
+caret_blink = true
+
+[node name="LocationContainer" type="VBoxContainer" parent="NewEventDialog/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Label" type="Label" parent="NewEventDialog/VBoxContainer/LocationContainer"]
+layout_mode = 2
+text = "Save Location:"
+
+[node name="LocationEdit" type="LineEdit" parent="NewEventDialog/VBoxContainer/LocationContainer"]
+layout_mode = 2
+text = "res://audio_events/"
+caret_blink = true
