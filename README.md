@@ -2,6 +2,12 @@
 
 A comprehensive, professional-grade audio management system for Godot 4 that brings FMOD and Wwise-like features to GDScript. Built entirely with native Godot tools and pure GDScript.
 
+## 📖 Documentation
+
+- **[Sound Designer Guide](SOUND_DESIGNER_GUIDE.md)** - Complete no-code workflow for audio designers
+- **[Usage Guide](USAGE_GUIDE.md)** - In-depth programming guide with examples
+- **[API Reference](#api-reference)** - Complete API documentation (below)
+
 ## Features
 
 ### 🎵 Core Audio System
