@@ -192,10 +192,14 @@ theme_override_font_sizes/font_size = 13
 
 [node name="Properties" type="ScrollContainer" parent="MarginContainer/MainSplit/CenterRightSplit/CenterPanel/MarginContainer/VBoxContainer/EditorTabContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 horizontal_scroll_mode = 0
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/MainSplit/CenterRightSplit/CenterPanel/MarginContainer/VBoxContainer/EditorTabContainer/Properties"]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
@@ -209,10 +213,14 @@ theme_override_constants/separation = 8
 [node name="Layers" type="ScrollContainer" parent="MarginContainer/MainSplit/CenterRightSplit/CenterPanel/MarginContainer/VBoxContainer/EditorTabContainer"]
 visible = false
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 horizontal_scroll_mode = 0
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/MainSplit/CenterRightSplit/CenterPanel/MarginContainer/VBoxContainer/EditorTabContainer/Layers"]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
@@ -226,10 +234,14 @@ theme_override_constants/separation = 12
 [node name="Stems" type="ScrollContainer" parent="MarginContainer/MainSplit/CenterRightSplit/CenterPanel/MarginContainer/VBoxContainer/EditorTabContainer"]
 visible = false
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 horizontal_scroll_mode = 0
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/MainSplit/CenterRightSplit/CenterPanel/MarginContainer/VBoxContainer/EditorTabContainer/Stems"]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
@@ -243,10 +255,14 @@ theme_override_constants/separation = 12
 [node name="Snapshots" type="ScrollContainer" parent="MarginContainer/MainSplit/CenterRightSplit/CenterPanel/MarginContainer/VBoxContainer/EditorTabContainer"]
 visible = false
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 horizontal_scroll_mode = 0
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/MainSplit/CenterRightSplit/CenterPanel/MarginContainer/VBoxContainer/EditorTabContainer/Snapshots"]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
