@@ -30,6 +30,13 @@ Phase 1 of the G4 Audio System implements the **core Godot-native architecture**
 ### ✅ Helpers
 - **AudioPool** - Object pooling for audio players
 
+### ✅ Test Suite
+- **55 comprehensive tests** covering all Phase 1 components
+- **Unit tests** for resources and helpers
+- **Integration tests** for singletons
+- **Automated test runner** with detailed reporting
+- See `tests/README.md` for complete documentation
+
 ---
 
 ## How to Enable
@@ -268,6 +275,39 @@ MusicManager.get_current_music_name() -> String
 MusicManager.get_current_beat() -> int
 MusicManager.get_current_bar() -> int
 ```
+
+---
+
+## Running Tests
+
+Phase 1 includes a comprehensive test suite with **55 tests** covering all components.
+
+### Quick Test Run
+
+**From Godot Editor:**
+1. Enable the G4 Audio plugin
+2. Open `tests/test_runner.tscn`
+3. Press F6 to run tests
+4. Check Output panel for results
+
+**From Command Line:**
+```bash
+godot --headless --path . tests/test_runner.tscn
+```
+
+### Test Coverage
+
+- ✅ **AudioParameter** - 8 tests
+- ✅ **AudioEvent** - 9 tests
+- ✅ **LayeredAudioEvent** - 7 tests
+- ✅ **MusicEvent** - 8 tests
+- ✅ **AudioPool** - 8 tests
+- ✅ **AudioManager** - 9 tests
+- ✅ **MusicManager** - 6 tests
+
+**Total: 55 tests**
+
+For detailed documentation, see `tests/README.md`.
 
 ---
 
