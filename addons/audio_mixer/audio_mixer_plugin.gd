@@ -30,7 +30,7 @@ func _enter_tree() -> void:
 	add_custom_type("AudioSnapshot", "Resource", preload("res://addons/audio_mixer/scripts/audio_snapshot.gd"), null)
 	add_custom_type("AudioParameter", "Resource", preload("res://addons/audio_mixer/scripts/audio_parameter.gd"), null)
 
-	print("AudioMixer Plugin: Enabled")
+	print("G4 Audio Plugin: Enabled")
 	print("  - Custom editor tab added")
 	print("  - Inspector plugin registered")
 	print("  - Resource types registered")
@@ -51,7 +51,7 @@ func _exit_tree() -> void:
 	remove_custom_type("AudioSnapshot")
 	remove_custom_type("AudioParameter")
 
-	print("AudioMixer Plugin: Disabled")
+	print("G4 Audio Plugin: Disabled")
 
 func _has_main_screen() -> bool:
 	return true
@@ -61,7 +61,7 @@ func _make_visible(visible: bool) -> void:
 		audio_mixer_ui.visible = visible
 
 func _get_plugin_name() -> String:
-	return "Audio Mixer"
+	return "G4 Audio"
 
 func _get_plugin_icon() -> Texture2D:
 	# Use built-in editor icon or custom icon
