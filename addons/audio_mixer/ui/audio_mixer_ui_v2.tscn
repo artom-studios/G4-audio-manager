@@ -1,0 +1,313 @@
+[gd_scene load_steps=2 format=3 uid="uid://ctq3r86rvj7xr"]
+
+[ext_resource type="Script" path="res://addons/audio_mixer/ui/audio_mixer_ui_v2.gd" id="1_audio_ui"]
+
+[node name="AudioMixerUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_audio_ui")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="MainContainer" type="HSplitContainer" parent="MarginContainer"]
+layout_mode = 2
+split_offset = 300
+
+[node name="LeftPanel" type="VBoxContainer" parent="MarginContainer/MainContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+
+[node name="Header" type="PanelContainer" parent="MarginContainer/MainContainer/LeftPanel"]
+layout_mode = 2
+
+[node name="VBox" type="VBoxContainer" parent="MarginContainer/MainContainer/LeftPanel/Header"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="MarginContainer/MainContainer/LeftPanel/Header/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "🎵 Audio Events"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/MainContainer/LeftPanel/Header/VBox"]
+layout_mode = 2
+
+[node name="Toolbar" type="HBoxContainer" parent="MarginContainer/MainContainer/LeftPanel/Header/VBox"]
+layout_mode = 2
+
+[node name="NewEventButton" type="MenuButton" parent="MarginContainer/MainContainer/LeftPanel/Header/VBox/Toolbar"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "+ New Event"
+
+[node name="DeleteButton" type="Button" parent="MarginContainer/MainContainer/LeftPanel/Header/VBox/Toolbar"]
+layout_mode = 2
+text = "🗑"
+tooltip_text = "Delete selected event"
+
+[node name="RefreshButton" type="Button" parent="MarginContainer/MainContainer/LeftPanel/Header/VBox/Toolbar"]
+layout_mode = 2
+text = "🔄"
+tooltip_text = "Refresh event list"
+
+[node name="SearchContainer" type="HBoxContainer" parent="MarginContainer/MainContainer/LeftPanel/Header/VBox"]
+layout_mode = 2
+
+[node name="SearchIcon" type="Label" parent="MarginContainer/MainContainer/LeftPanel/Header/VBox/SearchContainer"]
+layout_mode = 2
+text = "🔍"
+
+[node name="SearchBar" type="LineEdit" parent="MarginContainer/MainContainer/LeftPanel/Header/VBox/SearchContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Search events..."
+clear_button_enabled = true
+
+[node name="EventTree" type="Tree" parent="MarginContainer/MainContainer/LeftPanel"]
+layout_mode = 2
+size_flags_vertical = 3
+columns = 2
+column_titles_visible = true
+hide_root = true
+select_mode = 1
+
+[node name="CenterRightSplit" type="HSplitContainer" parent="MarginContainer/MainContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+split_offset = -350
+
+[node name="CenterPanel" type="VBoxContainer" parent="MarginContainer/MainContainer/CenterRightSplit"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="EventHeader" type="PanelContainer" parent="MarginContainer/MainContainer/CenterRightSplit/CenterPanel"]
+layout_mode = 2
+
+[node name="HBox" type="HBoxContainer" parent="MarginContainer/MainContainer/CenterRightSplit/CenterPanel/EventHeader"]
+layout_mode = 2
+
+[node name="EventIcon" type="Label" parent="MarginContainer/MainContainer/CenterRightSplit/CenterPanel/EventHeader/HBox"]
+layout_mode = 2
+text = "🎵"
+vertical_alignment = 1
+
+[node name="EventNameLabel" type="Label" parent="MarginContainer/MainContainer/CenterRightSplit/CenterPanel/EventHeader/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 18
+text = "No Event Selected"
+vertical_alignment = 1
+
+[node name="SaveButton" type="Button" parent="MarginContainer/MainContainer/CenterRightSplit/CenterPanel/EventHeader/HBox"]
+layout_mode = 2
+text = "💾 Save"
+tooltip_text = "Save event (Ctrl+S)"
+
+[node name="EditorTabContainer" type="TabContainer" parent="MarginContainer/MainContainer/CenterRightSplit/CenterPanel"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Properties" type="ScrollContainer" parent="MarginContainer/MainContainer/CenterRightSplit/CenterPanel/EditorTabContainer"]
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="PropertiesContainer" type="VBoxContainer" parent="MarginContainer/MainContainer/CenterRightSplit/CenterPanel/EditorTabContainer/Properties"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Layers" type="ScrollContainer" parent="MarginContainer/MainContainer/CenterRightSplit/CenterPanel/EditorTabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="LayersContainer" type="VBoxContainer" parent="MarginContainer/MainContainer/CenterRightSplit/CenterPanel/EditorTabContainer/Layers"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Stems" type="ScrollContainer" parent="MarginContainer/MainContainer/CenterRightSplit/CenterPanel/EditorTabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="StemsContainer" type="VBoxContainer" parent="MarginContainer/MainContainer/CenterRightSplit/CenterPanel/EditorTabContainer/Stems"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Snapshots" type="ScrollContainer" parent="MarginContainer/MainContainer/CenterRightSplit/CenterPanel/EditorTabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="SnapshotsContainer" type="VBoxContainer" parent="MarginContainer/MainContainer/CenterRightSplit/CenterPanel/EditorTabContainer/Snapshots"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RightPanel" type="VBoxContainer" parent="MarginContainer/MainContainer/CenterRightSplit"]
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 2
+
+[node name="PlaybackPanel" type="PanelContainer" parent="MarginContainer/MainContainer/CenterRightSplit/RightPanel"]
+layout_mode = 2
+
+[node name="VBox" type="VBoxContainer" parent="MarginContainer/MainContainer/CenterRightSplit/RightPanel/PlaybackPanel"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="MarginContainer/MainContainer/CenterRightSplit/RightPanel/PlaybackPanel/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "▶ Playback Controls"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/MainContainer/CenterRightSplit/RightPanel/PlaybackPanel/VBox"]
+layout_mode = 2
+
+[node name="ButtonContainer" type="HBoxContainer" parent="MarginContainer/MainContainer/CenterRightSplit/RightPanel/PlaybackPanel/VBox"]
+layout_mode = 2
+alignment = 1
+
+[node name="TestButton" type="Button" parent="MarginContainer/MainContainer/CenterRightSplit/RightPanel/PlaybackPanel/VBox/ButtonContainer"]
+custom_minimum_size = Vector2(140, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "▶ Play"
+tooltip_text = "Test playback of selected event"
+
+[node name="StopButton" type="Button" parent="MarginContainer/MainContainer/CenterRightSplit/RightPanel/PlaybackPanel/VBox/ButtonContainer"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "■ Stop"
+
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer/MainContainer/CenterRightSplit/RightPanel/PlaybackPanel/VBox"]
+layout_mode = 2
+
+[node name="StatusLabel" type="Label" parent="MarginContainer/MainContainer/CenterRightSplit/RightPanel/PlaybackPanel/VBox"]
+layout_mode = 2
+text = "Ready"
+horizontal_alignment = 1
+
+[node name="ParametersPanel" type="PanelContainer" parent="MarginContainer/MainContainer/CenterRightSplit/RightPanel"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBox" type="VBoxContainer" parent="MarginContainer/MainContainer/CenterRightSplit/RightPanel/ParametersPanel"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="MarginContainer/MainContainer/CenterRightSplit/RightPanel/ParametersPanel/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "🎚 Parameter Control"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/MainContainer/CenterRightSplit/RightPanel/ParametersPanel/VBox"]
+layout_mode = 2
+
+[node name="ParametersScroll" type="ScrollContainer" parent="MarginContainer/MainContainer/CenterRightSplit/RightPanel/ParametersPanel/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ParametersContainer" type="VBoxContainer" parent="MarginContainer/MainContainer/CenterRightSplit/RightPanel/ParametersPanel/VBox/ParametersScroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="NoParamsLabel" type="Label" parent="MarginContainer/MainContainer/CenterRightSplit/RightPanel/ParametersPanel/VBox/ParametersScroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "No parameters for this event"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer/MainContainer/CenterRightSplit/RightPanel/ParametersPanel/VBox"]
+layout_mode = 2
+
+[node name="CreateParamButton" type="Button" parent="MarginContainer/MainContainer/CenterRightSplit/RightPanel/ParametersPanel/VBox"]
+layout_mode = 2
+text = "+ Create Parameter"
+
+[node name="StatsPanel" type="PanelContainer" parent="MarginContainer/MainContainer/CenterRightSplit/RightPanel"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+
+[node name="VBox" type="VBoxContainer" parent="MarginContainer/MainContainer/CenterRightSplit/RightPanel/StatsPanel"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="MarginContainer/MainContainer/CenterRightSplit/RightPanel/StatsPanel/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "📊 System Stats"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/MainContainer/CenterRightSplit/RightPanel/StatsPanel/VBox"]
+layout_mode = 2
+
+[node name="StatsScroll" type="ScrollContainer" parent="MarginContainer/MainContainer/CenterRightSplit/RightPanel/StatsPanel/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="StatsLabel" type="Label" parent="MarginContainer/MainContainer/CenterRightSplit/RightPanel/StatsPanel/VBox/StatsScroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 11
+text = "Statistics loading..."
+
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer/MainContainer/CenterRightSplit/RightPanel/StatsPanel/VBox"]
+layout_mode = 2
+
+[node name="BPMContainer" type="HBoxContainer" parent="MarginContainer/MainContainer/CenterRightSplit/RightPanel/StatsPanel/VBox"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/MainContainer/CenterRightSplit/RightPanel/StatsPanel/VBox/BPMContainer"]
+layout_mode = 2
+text = "BPM:"
+
+[node name="BPMSpinBox" type="SpinBox" parent="MarginContainer/MainContainer/CenterRightSplit/RightPanel/StatsPanel/VBox/BPMContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 30.0
+max_value = 300.0
+value = 120.0
+
+[node name="BeatLabel" type="Label" parent="MarginContainer/MainContainer/CenterRightSplit/RightPanel/StatsPanel/VBox"]
+layout_mode = 2
+text = "Beat: 1 | Bar: 0"
+horizontal_alignment = 1
+
+[node name="NewEventDialog" type="ConfirmationDialog" parent="."]
+title = "Create New Audio Event"
+size = Vector2i(400, 150)
+
+[node name="VBox" type="VBoxContainer" parent="NewEventDialog"]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 392.0
+offset_bottom = 100.0
+
+[node name="Label" type="Label" parent="NewEventDialog/VBox"]
+layout_mode = 2
+text = "Event Name:"
+
+[node name="EventNameEdit" type="LineEdit" parent="NewEventDialog/VBox"]
+layout_mode = 2
+placeholder_text = "my_audio_event"
+
+[node name="HSeparator" type="HSeparator" parent="NewEventDialog/VBox"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="NewEventDialog/VBox"]
+layout_mode = 2
+text = "Save Location:"
+
+[node name="LocationEdit" type="LineEdit" parent="NewEventDialog/VBox"]
+layout_mode = 2
+text = "res://audio_events/"
